@@ -1,0 +1,41 @@
+---
+title: "Reproducible reporting"
+subtitle: "An introduction to Quarto"
+date: "August 25, 2024"
+date-format: long 
+#embed-resources: true
+format:
+  revealjs: 
+    theme: custom.scss
+    logo: logo.png
+    footer: Quarto - An introduction to literate programming
+    width: 1280
+    height: 720
+    transition: fade
+  pdf: 
+    classoption: landscape
+    fontsize: 18pt
+    colorlinks: true
+code-line-numbers: true
+author:
+  - name: Janick Weberpals, RPh, PhD
+    corresponding: true
+    orcid: 0000-0003-0404-7394
+    email: jweberpals@bwh.harvard.edu
+    url: janickweberpals.github.io
+    affiliations:
+      - name: Division of Pharmacoepidemiology and Pharmacoeconomics <br> Brigham and Women's Hospital <br> Harvard Medical School
+        address: 1620 Tremont Street
+        city: Boston
+        state: MA
+        postal-code: 02120
+---
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+```{r}
+#| echo: true
+1 + 1
+```

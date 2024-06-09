@@ -1,0 +1,26 @@
+/*-- scss:defaults --*/
+
+/*-- $body-bg: #666666; 
+$body-color: #fff; --*/
+$link-color: #42affa;
+$font-family-sans-serif: Avenir light;
+
+/*-- font sizes--*/
+$presentation-font-size-root: 35px;
+
+/*-- font colors--*/
+$presentation-heading-color: #B22222;
+
+/*-- scss:rules --*/
+
+.reveal .slide blockquote {
+  border-left: 3px solid $text-muted;
+  padding-left: 0.5em;
+}
+
+.reveal .slide-logo {
+  height: 80px !important;
+  width: 400px !important;
+  max-width: unset !important;
+  max-height: unset !important;
+}

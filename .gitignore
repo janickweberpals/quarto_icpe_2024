@@ -1,0 +1,6 @@
+/.quarto/
+
+.Rproj.user
+
+# system files
+.DS_Store
