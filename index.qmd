@@ -11,10 +11,10 @@ format:
     width: 1280
     height: 720
     transition: fade
-  pdf: 
-    classoption: landscape
-    fontsize: 18pt
-    colorlinks: true
+  # pdf: 
+  #   classoption: landscape
+  #   fontsize: 18pt
+  #   colorlinks: true
 code-line-numbers: true
 embed-resources: true
 ---
