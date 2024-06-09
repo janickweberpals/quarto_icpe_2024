@@ -1,0 +1,30 @@
+---
+title: "Let's git it started"
+subtitle: "Transparency and reproducibility across the RWE study lifecycle"
+author: "Janick Weberpals, Shirley V. Wang (BWH & Harvard Medical School) <br> Anna Schultze, John Tazare (London School of Hygiene and Tropical Medicine)"
+date: "August 25, 2024"
+date-format: long 
+format:
+  revealjs: 
+    theme: custom.scss
+    logo: logo.png
+    footer: Quarto - An introduction to literate programming
+    width: 1280
+    height: 720
+    transition: fade
+  # pdf: 
+  #   classoption: landscape
+  #   fontsize: 18pt
+  #   colorlinks: true
+code-line-numbers: true
+embed-resources: true
+---
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+```{r}
+#| echo: true
+1 + 1
+```

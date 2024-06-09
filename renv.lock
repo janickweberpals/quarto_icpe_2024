@@ -1,14 +1,10 @@
 {
   "R": {
-    "Version": "4.3.2",
+    "Version": "4.4.0",
     "Repositories": [
       {
-        "Name": "CRAN",
-        "URL": "https://cran.rstudio.com"
-      },
-      {
-        "Name": "PositPackageManager",
-        "URL": "https://packagemanager.posit.co/cran/latest"
+        "Name": "REPO_NAME",
+        "URL": "https://packagemanager.posit.co/cran/2024-06-01"
       }
     ]
   },
@@ -249,13 +245,13 @@
     },
     "renv": {
       "Package": "renv",
-      "Version": "1.0.4",
+      "Version": "1.0.7",
       "Source": "Repository",
-      "Repository": "CRAN",
+      "Repository": "REPO_NAME",
       "Requirements": [
         "utils"
       ],
-      "Hash": "11abaf7c540ff33f94514d50f929bfd1"
+      "Hash": "397b7b2a265bc5a7a06852524dabae20"
     },
     "rlang": {
       "Package": "rlang",
