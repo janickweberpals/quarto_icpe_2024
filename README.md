@@ -2,6 +2,8 @@
 
 This repository contains all materials for the introduction to literate programming and reporting using quarto.
 
+Slides can be accessed at: <https://janickweberpals.github.io/quarto_icpe_2024/index.html#/title-slide>
+
 ## Dependencies
 
 This is a quarto project and dependencies are managed through the `renv` package. All packages and their versions can be viewed in the lockfile `renv.lock`. All required packages and the appropriate versions can be installed by running the following command:
