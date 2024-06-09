@@ -1,5 +1,6 @@
 project:
   title: "revealjs_template"
+  output-dir: docs
   
 editor: visual
 
