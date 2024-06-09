@@ -1,19 +1,41 @@
 ---
-title: "ICPE 2024 presentations"
-subtitle: "Course introduction and reproducible reporting"
+title: "Reproducible reporting"
+subtitle: "An introduction to Quarto"
 date: "August 25, 2024"
 date-format: long 
-format: html
+format:
+  revealjs: 
+    theme: custom.scss
+    logo: logo.png
+    footer: Quarto - An introduction to literate programming
+    width: 1280
+    height: 720
+    transition: fade
+  # pdf: 
+  #   classoption: landscape
+  #   fontsize: 18pt
+  #   colorlinks: true
+toc: true
+code-line-numbers: true
+embed-resources: true
 ---
 
-## Welcome and introduction
+## Problem
 
-<iframe src="https://janickweberpals.github.io/quarto_icpe_2024/01_welcome.html" frameborder="0" width="725" height="440.6641" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true">
+...
 
-</iframe>
+## Literate programming
 
-## Reproducible reporting using Quarto
+...
 
-<iframe src="https://janickweberpals.github.io/quarto_icpe_2024/02_reporting.html" frameborder="0" width="725" height="440.6641" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true">
+## Introduction to Quarto
 
-</iframe>
+...
+
+## Examples
+
+...
+
+## Reproducible projects and manuscripts
+
+...
