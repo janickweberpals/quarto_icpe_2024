@@ -26,7 +26,15 @@ embed-resources: true
 
 ## Literate programming
 
-...
+-   [Literate programming](https://en.wikipedia.org/wiki/Literate_programming) is a concept pioneered by [Donald Knuth](https://en.wikipedia.org/wiki/Donald_Knuth), a Turing Award recipient known for creating [TeX](https://en.wikipedia.org/wiki/TeX).
+
+-   The main idea behind the early form of literate programming was to upend the traditional programming practices of the time by systematically including human readable text accompanying and explaining the logic and the purpose of a program.
+
+-   As he describes in [“Literate Programming”](https://www-cs-faculty.stanford.edu/~knuth/lp.html), Knuth considers the programmer as an “essayist” who should strive to communicate the purpose of a program in order to create better code.
+
+-   While initially centered in the domain of computer science, it more recently resurged in the interdisciplinary world of “data science”.
+
+<https://bernhardbieri.ch/blog/2022-08-25-litteralprogramminginstata/>
 
 ## Introduction to Quarto
 
