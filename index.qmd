@@ -3,9 +3,7 @@ title: "ICPE 2024 presentations"
 subtitle: "Course introduction and reproducible reporting"
 date: "August 25, 2024"
 date-format: long 
-format:
-  html: 
-    embed-resources: true
+format: html
 ---
 
 ## Welcome and introduction
