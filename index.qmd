@@ -8,6 +8,7 @@ format:
     theme: custom.scss
     logo: logo.png
     footer: Quarto - An introduction to literate programming
+    incremental: false 
     width: 1280
     height: 720
     transition: fade
@@ -16,17 +17,59 @@ format:
   #   fontsize: 18pt
   #   colorlinks: true
 toc: true
+toc-depth: 1
 code-line-numbers: true
 embed-resources: true
+bibliography: references.bib
 ---
 
-## Problem
+# Problem statement
 
-...
+> *Wait, but how was that done exactly?*
+
+## Problem statement {.incremental}
+
+> *Wait, but how was that done exactly?*
+
+::: incremental
+-   More often than not, statistical and computational methods are reported and phrased ambiguously
+
+    > *"We measured the pre-exposure performance status within 90 days of the index date."*
+
+-   Does the 90-day window include or exclude the index date? What was done if there were multiple performance assessments per patient? ...
+
+-   Take a moment and reflect if you would be able to exactly reproduce a study you published 10 years just based on the paper's methods section?
+:::
+
+## Is there a reproducibility crisis?
+
+[Nature survey](https://www.nature.com/articles/533452a#change-history): More than 70% of researchers have tried and failed to reproduce another scientist's experiments, and more than half have failed to reproduce their own experiments [@Baker2016]
+
+![](images/nature_reproducibility_crisis.jpg){fig-align="center"}
+
+## What if...
+
+::: {.callout-important icon="false"}
+## What if...
+
+If there was just a way to combine...
+
+-   the narrative prose that explains the methods used
+
+-   the analytic code we implemented to execute these methods
+
+-   the corresponding results
+
+...all in one report.
+:::
+
+# Literate programming
+
+> *Instead of imagining that our main task is to instruct a computer what to do, let us concentrate rather on explaining to human beings what we want a computer to do (*[Donald Knuth](#0), Turing Award recipient)
 
 ## Literate programming
 
--   [Literate programming](https://en.wikipedia.org/wiki/Literate_programming) is a concept pioneered by [Donald Knuth](https://en.wikipedia.org/wiki/Donald_Knuth), a Turing Award recipient known for creating [TeX](https://en.wikipedia.org/wiki/TeX).
+-   [Literate programming](https://en.wikipedia.org/wiki/Literate_programming) is a concept pioneered by [Donald Knuth](#0), a Turing Award recipient known for creating [TeX](#0).
 
 -   The main idea behind the early form of literate programming was to upend the traditional programming practices of the time by systematically including human readable text accompanying and explaining the logic and the purpose of a program.
 
@@ -47,3 +90,5 @@ embed-resources: true
 ## Reproducible projects and manuscripts
 
 ...
+
+## References
