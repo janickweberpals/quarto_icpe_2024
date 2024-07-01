@@ -18,6 +18,7 @@ format:
   #   colorlinks: true
 toc: true
 toc-depth: 1
+slide-number: true
 code-line-numbers: true
 embed-resources: true
 bibliography: references.bib
@@ -67,7 +68,11 @@ If there was just a way to combine...
 
 > *Instead of imagining that our main task is to instruct a computer what to do, let us concentrate rather on explaining to human beings what we want a computer to do (*[Donald Knuth](#0), Turing Award recipient)
 
-## Literate programming
+## Definition
+
+...
+
+## History of literate programming
 
 -   [Literate programming](https://en.wikipedia.org/wiki/Literate_programming) is a concept pioneered by [Donald Knuth](#0), a Turing Award recipient known for creating [TeX](#0).
 
@@ -78,6 +83,10 @@ If there was just a way to combine...
 -   While initially centered in the domain of computer science, it more recently resurged in the interdisciplinary world of “data science”.
 
 <https://bernhardbieri.ch/blog/2022-08-25-litteralprogramminginstata/>
+
+## Popular frameworks
+
+...
 
 ## Introduction to Quarto
 
