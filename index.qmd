@@ -16,10 +16,12 @@ format:
   #   classoption: landscape
   #   fontsize: 18pt
   #   colorlinks: true
+code-summary: "Show code"
+code-line-numbers: true
+
 toc: true
 toc-depth: 1
 slide-number: true
-code-line-numbers: true
 embed-resources: true
 bibliography: references.bib
 ---
@@ -28,12 +30,12 @@ bibliography: references.bib
 
 > *Wait, but how was that done exactly?*
 
-## Problem statement {.incremental}
+## Problem statement (i) {.incremental}
 
 > *Wait, but how was that done exactly?*
 
 ::: incremental
--   More often than not, statistical and computational methods are reported and phrased ambiguously
+-   More often than not, statistical and computational methods are reported and phrased ambiguously, e.g.,
 
     > *"We measured the pre-exposure performance status within 90 days of the index date."*
 
@@ -41,6 +43,14 @@ bibliography: references.bib
 
 -   Take a moment and reflect if you would be able to exactly reproduce a study you published 10 years just based on the paper's methods section?
 :::
+
+## Problem statement (ii) {.incremental}
+
+> *Wait, but how was that done exactly?*
+
+One could find the details in the analytical programming code, BUT...
+
+![](images/messy_code.jpg){fig-align="center" width="722"}
 
 ## Is there a reproducibility crisis?
 
@@ -61,16 +71,53 @@ If there was just a way to combine...
 
 -   the corresponding results
 
-...all in one report.
+...all in one report?
 :::
 
 # Literate programming
 
 > *Instead of imagining that our main task is to instruct a computer what to do, let us concentrate rather on explaining to human beings what we want a computer to do (*[Donald Knuth](#0), Turing Award recipient)
 
-## Definition
+## Definition {.incremental}
 
-...
+It is basically an annotated, executable manuscript!
+
+::: callout-tip
+## Literate programming
+
+[Programming paradigm](https://en.wikipedia.org/wiki/Programming_paradigm "Programming paradigm") introduced in 1984 by [Donald Knuth](https://en.wikipedia.org/wiki/Donald_Knuth "Donald Knuth") in which a [computer program](https://en.wikipedia.org/wiki/Computer_program "Computer program") is given as an explanation of how it works in a [natural language](https://en.wikipedia.org/wiki/Natural_language "Natural language"), such as English, interspersed (embedded) with [snippets](https://en.wikipedia.org/wiki/Snippet_(programming) "Snippet (programming)") of [macros](https://en.wikipedia.org/wiki/Macro_(computer_science) "Macro (computer science)") and traditional [source code](https://en.wikipedia.org/wiki/Source_code "Source code"), from which [compilable](https://en.wikipedia.org/wiki/Compiler "Compiler") source code can be generated.
+
+[@knuth1984literate]
+:::
+
+In other words...
+
+$$
+\text{Literate programming} = \text{Documentation + Source Code + Output/Results} 
+$$
+
+## Example {.incremental}
+
+::: callout-note
+## Methods section text:
+
+*"A propensity score model for exposure initiation was fit using logistic regression with age, sex and smoking as covariates. Patients were matched using nearest neighbor matching on the propensity score in a 1:1 ratio without replacement targeting the average treatment effect among the treated (ATT)."*
+:::
+
+```{r}
+#| echo: true
+#| code-fold: false
+MatchIt::matchit(
+  formula = exposure ~ age_num + female_cat + smoking_cat,
+  data = smdi::smdi_data,
+  ratio = 1,
+  method = "nearest",
+  distance = "glm",
+  link = "logit",
+  estimand = "ATT",
+  replace = F
+  )
+```
 
 ## History of literate programming
 
@@ -84,7 +131,21 @@ If there was just a way to combine...
 
 <https://bernhardbieri.ch/blog/2022-08-25-litteralprogramminginstata/>
 
-## Popular frameworks
+## Popular frameworks - RMarkdown
+
+...
+
+## Popular frameworks - Jupyter
+
+...
+
+## Document complexity of technical report
+
+> *Strengths and weaknesses of technical reporting systems*
+
+![](images/complexity_typesetting.png){fig-align="center"}
+
+## Goal: single source publishing
 
 ...
 
