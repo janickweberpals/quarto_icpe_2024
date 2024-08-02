@@ -605,15 +605,16 @@ MatchIt::matchit(
 
 -   Is a technical publishing system compatible with most programming languages and editors
 
--   Is a single source reporting system that can produce many different types of outputs (docx, pdf, html, websites, presentations, etc.)
+-   Is a single source reporting system that can produce many different types of outputs (.docx, .pdf, .html, websites, presentations, etc.)
 
 -   Main ingredients: YAML header (metadata), text, code chunks
 
 -   Can be used as to blend narrative text, programming code and output in one document
 
--   Has all capabilities of common reporting systems (e.g., MS Word) and some that go beyond (inline coding, dynamic elements, ...)
-:::
+-   Has all capabilities of common reporting systems (e.g., MS Word) and many that go beyond (inline coding, dynamic and interactive elements, ...)
 
+-   May be useful to parameterize analysis pipelines avoiding error-prone copy-pasting
+:::
 
 ## **Further resources**
 
