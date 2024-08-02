@@ -24,6 +24,9 @@ toc-depth: 1
 slide-number: true
 embed-resources: true
 bibliography: references.bib
+with:
+  target: gh-pages
+  path: index.qmd
 ---
 
 # Problem statement
