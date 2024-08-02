@@ -375,7 +375,9 @@ trial |>
 -   Quarto also integrates LaTeX and styles to write equations such that ...
 
 ```         
-$$\lambda(t | X) = \lambda_0(t) \exp(\beta_1 X_1 + \beta_2 X_2 + \dots + \beta_p X_p)$$
+$$
+\lambda(t | X) = \lambda_0(t) \exp(\beta_1 X_1 + \beta_2 X_2 + \dots + \beta_p X_p)
+$$
 ```
 
 ... becomes:
@@ -613,7 +615,7 @@ MatchIt::matchit(
 
 -   Has all capabilities of common reporting systems (e.g., MS Word) and many that go beyond (inline coding, dynamic and interactive elements, ...)
 
--   May be useful to parameterize analysis pipelines avoiding error-prone copy-pasting
+-   Is a useful tool to parameterize and streamline analysis pipelines avoiding error-prone copy-pasting
 :::
 
 ## **Further resources**
