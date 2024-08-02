@@ -131,13 +131,29 @@ MatchIt::matchit(
 
 <https://bernhardbieri.ch/blog/2022-08-25-litteralprogramminginstata/>
 
-## Popular frameworks - RMarkdown
+## Popular legacy frameworks - RMarkdown
 
-...
+-   `R`Markdown is a powerful open-source tool for combining analysis and reporting into the same document
 
-## Popular frameworks - Jupyter
+-   Can be used with few programming languages, but mostly focused on `R` programming language
 
-...
+[![Diagram illustrating how an RMarkdown document is converted to the final output document.](images/RMarkdown_workflow.png){width="882"}](https://bookdown.org/yihui/rmarkdown-cookbook/rmarkdown-process.html)
+
+## Popular legacy frameworks - RMarkdown
+
+![Example of an RMarkdown report and the corresponding output](images/RMarkdown_example.png){fig-align="center"}
+
+## Popular legacy frameworks - Jupyter
+
+-   [Project Jupyter](https://jupyter.org/about) is a non-profit, open-source project, born out of the [IPython Project](https://ipython.org/) in 2014 as it evolved to support interactive data science and scientific computing across all programming languages
+
+-   Most often seen to be used by Python programmers
+
+[![Illustration of Jupyter notebook workflow.](images/ipynb-how-it-works.png){fig-align="center"}](https://jjallaire.quarto.pub/intro-to-quarto/#/jupyter-engine)
+
+## Popular legacy frameworks - Jupyter
+
+[![Example of a Jupyter Notebook report and the corresponding output](images/jupyterlab-preview.png){fig-align="center"}](https://quarto.org/docs/tools/jupyter-lab.html)
 
 ## Document complexity of technical report
 
@@ -147,9 +163,120 @@ MatchIt::matchit(
 
 ## Goal: single source publishing
 
-...
+[![From raw code and text to an elegant research report using Quarto](images/qmd-workflow.png)](https://openscapes.github.io/quarto-website-tutorial/quarto-workflows/)
 
 ## Introduction to Quarto
+
+-   An open-source scientific and technical publishing system
+
+[![Side-by-side example of a Quarto document (left) and a render .html output](images/quarto-hello.png)](https://quarto.org/docs/get-started/hello/rstudio.html)
+
+## Introduction to Quarto
+
+-   Unifies the functionality of many tools, packages and open source platforms into a single consistent system
+
+-   Extends it with native support for a large number of open-source programming languages (R, Python, Julia, Stan, C++, etc.)
+
+-   Can be used with most common code editors (RStudio, Jupyter, VSCode, etc.)
+
+-   Proprietary programming languages (SAS, STATA) can also be integrated but require some additional setup
+
+    -   Additional resources for use of Quarto with [SAS](https://sassoftware.github.io/saspy/configuration.html#http) ([setup](https://www.harveyl888.com/outputs/quarto_02.html), [demo](https://www.harveyl888.com/outputs/quarto_02.html)) and [STATA](https://users.ssc.wisc.edu/~hemken/Stataworkshops/Statamarkdown/stata-and-r-markdown.html) can be found on the course website
+
+## Quarto - ingredients for a research report
+
+-   First we provide **metadata** about the project in a so called YAML header (Yet Another Markdown Language)
+-   Documentation on all YAML options can be found on <https://quarto.org/docs/reference/>
+
+``` yaml
+---
+title: "My RWE study report"
+author: "Janick Weberpals"
+date: last-modified
+toc: true
+code-fold: true
+number-sections: true
+bibliography: references.bib
+csl: pharmacoepidemiology-and-drug-safety.csl
+format: 
+  html: default
+  docx: default
+  pdf: default
+---
+```
+
+## Quarto - ingredients for a research report
+
+::: columns
+::: {.column width="50%"}
+**Plain text**
+
+-   To describe objectives, methods (just like in a .docx document)
+
+-   Achieved via Markdown syntax
+
+-   ✅ Universal and reproducible formatting across output document types
+
+-   ❌ Syntax needs to be known (although many modern editors come with a GUI)
+:::
+
+::: {.column width="50%"}
+[![](images/markdown.png){width="600"}](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)
+:::
+:::
+
+## Quarto - ingredients for a research report
+
+-   Code chunks make it possible to blend plain text, programming code and the corresponding output, e.g.,
+
+    | The propensity score was defined as the probability of each patient to initiate the exposure based on observed baseline covariates including age, sex and smoking.
+
+```{r}
+#| label: example-ps-fit
+#| echo: true
+
+library(smdi)
+library(dplyr)
+
+# define the model fit
+ps_fit <- as.formula(exposure ~ age_num + female_cat + smoking_cat)
+ps_fit
+
+# perform logistic regression
+exposure_fit <- glm(
+  ps_fit,
+  data = smdi_data,
+  family = "binomial"
+  )
+
+# store propensity scores
+smdi_data <- smdi_data |> 
+   mutate(ps = fitted(exposure_fit))
+```
+
+## Quarto-based research reports {visibility="hidden"}
+
+<iframe src="https://drugepi.gitlab-pages.partners.org/hdmi-manuscript/" width="1920" height="1080" title="HDMI research report">
+
+</iframe>
+
+## Quarto-based research reports
+
+[![\[Example research report\](https://drugepi.gitlab-pages.partners.org/hdmi-manuscript/) created using Quarto](images/hdmi_example.png){fig-align="center"}](https://drugepi.gitlab-pages.partners.org/hdmi-manuscript/)
+
+## YAML file
+
+...
+
+## Text formatting
+
+...
+
+## Equations
+
+...
+
+## Code execution
 
 ...
 
@@ -157,8 +284,20 @@ MatchIt::matchit(
 
 ...
 
+## Parameterized reporting
+
+...
+
 ## Reproducible projects and manuscripts
 
 ...
+
+## **Further resources**
+
+-   [Introduction to Quarto (R for Data Science)](https://r4ds.hadley.nz/quarto)
+
+-   [Basic Quarto workflows](https://openscapes.github.io/quarto-website-tutorial/quarto-workflows/)
+
+-   
 
 ## References
