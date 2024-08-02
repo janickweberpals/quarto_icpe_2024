@@ -1,0 +1,10 @@
+---
+title: "My study report"
+author: "Janick Weberpals"
+date: last-modified
+toc: true
+format: 
+  html: default
+  docx: default
+  pdf: default
+---

@@ -54,9 +54,9 @@ One could find the details in the analytical programming code, BUT...
 
 ## Is there a reproducibility crisis?
 
-[Nature survey](https://www.nature.com/articles/533452a#change-history): More than 70% of researchers have tried and failed to reproduce another scientist's experiments, and more than half have failed to reproduce their own experiments [@Baker2016]
+[Nature survey 2016](https://www.nature.com/articles/533452a#change-history): More than 70% of researchers have tried and failed to reproduce another scientist's experiments, and more than half have failed to reproduce their own experiments [@Baker2016]
 
-![](images/nature_reproducibility_crisis.jpg){fig-align="center"}
+![](images/nature_reproducibility_crisis.jpg){#fig-nature fig-align="center"}
 
 ## What if...
 
@@ -76,7 +76,7 @@ If there was just a way to combine...
 
 # Literate programming
 
-> *Instead of imagining that our main task is to instruct a computer what to do, let us concentrate rather on explaining to human beings what we want a computer to do (*[Donald Knuth](#0), Turing Award recipient)
+> *Instead of imagining that our main task is to instruct a computer what to do, let us concentrate rather on explaining to human beings what we want a computer to do (*[Donald Knuth](#0), Turing Award recipient)
 
 ## Definition {.incremental}
 
@@ -121,7 +121,7 @@ MatchIt::matchit(
 
 ## History of literate programming
 
--   [Literate programming](https://en.wikipedia.org/wiki/Literate_programming) is a concept pioneered by [Donald Knuth](#0), a Turing Award recipient known for creating [TeX](#0).
+-   [Literate programming](https://en.wikipedia.org/wiki/Literate_programming) is a concept pioneered by [Donald Knuth](#0), a Turing Award recipient known for creating [TeX](#0).
 
 -   The main idea behind the early form of literate programming was to upend the traditional programming practices of the time by systematically including human readable text accompanying and explaining the logic and the purpose of a program.
 
@@ -155,21 +155,21 @@ MatchIt::matchit(
 
 [![Example of a Jupyter Notebook report and the corresponding output](images/jupyterlab-preview.png){fig-align="center"}](https://quarto.org/docs/tools/jupyter-lab.html)
 
-## Document complexity of technical report
+## Document complexity of technical report {.hidden}
 
 > *Strengths and weaknesses of technical reporting systems*
 
 ![](images/complexity_typesetting.png){fig-align="center"}
 
-## Goal: single source publishing
+# Quarto
 
-[![From raw code and text to an elegant research report using Quarto](images/qmd-workflow.png)](https://openscapes.github.io/quarto-website-tutorial/quarto-workflows/)
+> Dynamic study reporting
 
 ## Introduction to Quarto
 
 -   An open-source scientific and technical publishing system
 
-[![Side-by-side example of a Quarto document (left) and a render .html output](images/quarto-hello.png)](https://quarto.org/docs/get-started/hello/rstudio.html)
+[![Side-by-side example of a Quarto document (left) and a rendered .html output](images/quarto-hello.png)](https://quarto.org/docs/get-started/hello/rstudio.html)
 
 ## Introduction to Quarto
 
@@ -183,9 +183,17 @@ MatchIt::matchit(
 
     -   Additional resources for use of Quarto with [SAS](https://sassoftware.github.io/saspy/configuration.html#http) ([setup](https://www.harveyl888.com/outputs/quarto_02.html), [demo](https://www.harveyl888.com/outputs/quarto_02.html)) and [STATA](https://users.ssc.wisc.edu/~hemken/Stataworkshops/Statamarkdown/stata-and-r-markdown.html) can be found on the course website
 
-## Quarto - ingredients for a research report
+## Goal: single source publishing
 
--   First we provide **metadata** about the project in a so called YAML header (Yet Another Markdown Language)
+-   Since Quarto is a single source reporting system, we are not constraint to only output one document type but multiple given the same source document
+
+-   Example: Manuscript written for a journal, we can also render it into a website
+
+[![From raw code and text to an elegant research report using Quarto](images/qmd-workflow.png)](https://openscapes.github.io/quarto-website-tutorial/quarto-workflows/)
+
+## Quarto - ingredients for a research report (i)
+
+-   First we provide **metadata** about the project in a so called `YAML header` (Yet Another Markdown Language)
 -   Documentation on all YAML options can be found on <https://quarto.org/docs/reference/>
 
 ``` yaml
@@ -205,11 +213,11 @@ format:
 ---
 ```
 
-## Quarto - ingredients for a research report
+## Quarto - ingredients for a research report (ii)
 
 ::: columns
 ::: {.column width="50%"}
-**Plain text**
+`Plain text`
 
 -   To describe objectives, methods (just like in a .docx document)
 
@@ -225,72 +233,387 @@ format:
 :::
 :::
 
-## Quarto - ingredients for a research report
+## Quarto - ingredients for a research report (iii)
 
--   Code chunks make it possible to blend plain text, programming code and the corresponding output, e.g.,
+-   `Code chunks` make it possible to blend plain text, programming code and the corresponding output, e.g.,
 
-    | The propensity score was defined as the probability of each patient to initiate the exposure based on observed baseline covariates including age, sex and smoking.
+    ::: callout-note
+    ## Methods section text:
+
+    *"The propensity score was defined as the probability of each patient to initiate the exposure based on observed baseline covariates including age, sex and smoking."*
+    :::
+
+Code chunk following description of propensity score model:
 
 ```{r}
 #| label: example-ps-fit
 #| echo: true
 
-library(smdi)
-library(dplyr)
-
 # define the model fit
 ps_fit <- as.formula(exposure ~ age_num + female_cat + smoking_cat)
 ps_fit
-
-# perform logistic regression
-exposure_fit <- glm(
-  ps_fit,
-  data = smdi_data,
-  family = "binomial"
-  )
-
-# store propensity scores
-smdi_data <- smdi_data |> 
-   mutate(ps = fitted(exposure_fit))
 ```
 
-## Quarto-based research reports {visibility="hidden"}
+## Quarto - ingredients for a research report (iii)
 
-<iframe src="https://drugepi.gitlab-pages.partners.org/hdmi-manuscript/" width="1920" height="1080" title="HDMI research report">
+-   `Code chunks` are not limited to one programming language, but can accommodate multiple in the same document
+-   Language is chosen by the `{}` parameter at the beginning of each code chunk
 
-</iframe>
+::: columns
+::: {.column width="50%"}
+```` markdown
+```{{r}}
+print("This is R code")
+```
+````
 
-## Quarto-based research reports
+```{r}
+print("This is R code")
+```
+:::
 
-[![\[Example research report\](https://drugepi.gitlab-pages.partners.org/hdmi-manuscript/) created using Quarto](images/hdmi_example.png){fig-align="center"}](https://drugepi.gitlab-pages.partners.org/hdmi-manuscript/)
+::: {.column width="50%"}
+```` markdown
+```{{python}}
+print("This is python code")
+```
+````
 
-## YAML file
+```{r}
+print("This is python code")
+```
+:::
+:::
 
-...
+# Reporting elements
 
-## Text formatting
+## Figures
 
-...
+Quarto enables the integration, labeling and cross-referencing of `figures` using `@fig-missingness` which becomes @fig-missingness.
+
+```` markdown
+```{{r}}
+#| label: fig-missingness
+#| fig-cap: "Proportion of missingness among covariates with at least one unobserved value"
+
+library(smdi)
+
+smdi_vis(smdi_data)
+```
+````
+
+```{r}
+#| label: fig-missingness
+#| fig-cap: "Proportion of missingness among covariates with at least one unobserved value"
+#| echo: false
+
+library(smdi)
+
+smdi_vis(smdi_data)
+```
+
+## Flowcharts and diagrams
+
+-   Quarto has native support for embedding [Mermaid](https://mermaid-js.github.io/mermaid/#/) and [Graphviz](https://graphviz.org/) diagrams
+
+-   This enables the depiction of flowcharts, sequence diagrams, state diagrams, gantt charts, and more using a plain text syntax inspired by markdown
+
+```` markdown
+```{{mermaid}}
+flowchart LR
+  C(Confounder) --> E(Exposure)
+  C(Confounder) --> O(Outcome)
+  E(Exposure) --> O(Outcome)
+```
+````
+
+```{mermaid}
+%%| fig-width: 15
+flowchart LR
+  C(Confounder) --> E(Exposure)
+  C(Confounder) --> O(Outcome)
+  E(Exposure) --> O(Outcome)
+```
+
+## Tables
+
+Similarly, we can also create, label and cross-reference `tables` using `@tbl-table1` which becomes @tbl-table1.
+
+```{r}
+#| include: false
+
+library(gtsummary)
+theme_gtsummary_journal(journal = "jama")
+theme_gtsummary_compact()
+```
+
+```` markdown
+```{{r}}
+#| label: tbl-table1
+#| tbl-cap: "Baseline patient characteristics."
+
+library(gtsummary)
+
+trial |>  
+  tbl_summary(by = trt, include = c(age, grade))
+```
+````
+
+```{r}
+#| label: tbl-table1
+#| tbl-cap: "Baseline patient characteristics."
+#| echo: false
+
+library(gtsummary)
+
+trial |>  
+  tbl_summary(by = trt, include = c(age, grade))
+```
 
 ## Equations
 
-...
+-   Quarto also integrates LaTeX and styles to write equations such that ...
 
-## Code execution
+```         
+$$\lambda(t | X) = \lambda_0(t) \exp(\beta_1 X_1 + \beta_2 X_2 + \dots + \beta_p X_p)$$
+```
 
-...
+... becomes:
 
-## Examples
+$$
+\lambda(t | X) = \lambda_0(t) \exp(\beta_1 X_1 + \beta_2 X_2 + \dots + \beta_p X_p)
+$$
 
-...
+## Referencing
 
-## Parameterized reporting
+Quarto has an in-built referencing system for which the referencing style can be chosen in the `YAML header`
 
-...
+::: columns
+::: {.column width="50%"}
+![RStudio built-in reference manager](images/citation_manager.png)
+:::
 
-## Reproducible projects and manuscripts
+::: {.column .incremental width="50%"}
+``` yaml
+---
+title: "My RWE study report"
+bibliography: references.bib
+csl: pharmacoepidemiology-and-drug-safety.csl
+format: docx
+---
 
-...
+In the 2009 publication, Schneeweiss et al. 
+[@schneeweiss2009high] introduced the 
+concept of high-dimensional propensity scores.
+```
+
+⬇️
+
+*"In his 2009 publication, Schneeweiss et al. [@schneeweiss2009high] introduced the concept of high-dimensional propensity scores."*
+:::
+:::
+
+## Inline code
+
+-   Inline code allows to execute code within markdown, e.g. to automatically use the most up-to-date computations in narrative.
+
+```{r}
+#| include: false
+
+# we determine the sample size in a code chunk to integrate into our narrative text
+sample_size <- nrow(smdi_data)
+```
+
+```` markdown
+```{{r}}
+# we determine the sample size in a code chunk to integrate into our narrative report
+sample_size <- nrow(smdi_data)
+```
+
+The sample size comprised `{r} sample_size` patients.
+````
+
+-   In a dynamic study report, we now don't need to manually copy-paste numbers, but only reference the resulting object of the computations performed in the code chunk, which then automatically shows the most-up-to date number:
+
+> The sample size comprised `r sample_size` patients.
+
+# Interactive reports
+
+If we render study reports to output formats that support interactive elements (e.g., .html), Quarto provides even more tools to make study reporting interactive
+
+## Tabsets
+
+```{r}
+#| include: false
+dataset <- smdi_data |> 
+  mutate(exposure = factor(exposure))
+```
+
+::: panel-tabset
+## Tabset
+
+`Tabset` allows us to divide content into multiple tabs for interactive exploration
+
+``` markdown
+
+::: panel-tabset
+
+## Age distribution
+
+
+## Biomarker distribution
+
+:::
+```
+
+## Age distribution
+
+```{r}
+#| label: fig-age
+#| echo: false
+#| fig-cap: "Age by exposure status"
+
+library(ggplot2)
+
+dataset |> 
+  ggplot(aes(x = age_num, fill = exposure)) +
+  geom_density(alpha = 0.5) +
+  theme_minimal() +
+  labs(
+    x = "Age [Years]",
+    y = "Density",
+    fill = "Exposure"
+  )
+```
+
+## Biomarker distribution
+
+```{r}
+#| label: fig-biomarker
+#| echo: false
+#| fig-cap: "Biomarker expression by exposure status"
+
+library(ggplot2)
+
+dataset |> 
+  ggplot(aes(x = pdl1_num, fill = exposure)) +
+  geom_density(alpha = 0.5) +
+  theme_minimal() +
+  labs(
+    x = "Biomarker expression [%]",
+    y = "Density",
+    fill = "Exposure"
+  )
+```
+:::
+
+## Code folding
+
+Sometimes it may not be desired to see the entire code to enable readers to focus on the text and results but still have the ability to see the code
+
+::: panel-tabset
+## `code-fold` parameter
+
+``` markdown
+#| code-fold: true
+
+library(ggplot2)
+
+dataset |> 
+  ggplot(aes(x = exposure, y = age_num, fill = exposure)) +
+  geom_boxplot(alpha = 0.5) +
+  theme_minimal() +
+  labs(
+    x = "Exposure status",
+    y = "Years of age",
+    fill = "Exposure"
+  )
+```
+
+## Output
+
+```{r}
+#| label: fig-age2
+#| echo: true
+#| fig-cap: "Age by exposure status"
+#| code-fold: true
+#| fig-width: 5
+#| fig-height: 2.5
+
+library(ggplot2)
+
+dataset |> 
+  ggplot(aes(x = exposure, y = age_num, fill = exposure)) +
+  geom_boxplot(alpha = 0.5) +
+  theme_minimal() +
+  labs(
+    x = "Exposure status",
+    y = "Years of age",
+    fill = "Exposure"
+  )
+```
+:::
+
+## Parameterized reporting (i)
+
+-   RWE studies usually include many sensitivity analyses to check the robustness of certain assumptions and models in the main analysis
+
+-   Often it is just one or few parameters that have to bee changed
+
+-   Copy-pasting code back and forth is very error-prone and should be avoided
+
+::: callout-note
+## Case study
+
+Let's say we do propensity score matching with a certain caliper and want to run a sensitivity analysis with a different caliper but we don't want to copy-paste any of the code
+:::
+
+## Parameterized reporting (ii)
+
+-   The `YAML header` that contains the metadata about the study report also has an option to define study parameters that can be flexibly changed
+
+-   Let's say we do propensity score matching with a certain caliper and want to run a sensitivity analysis with a different caliper
+
+``` yaml
+---
+title: "My RWE study report"
+params:
+  ps_caliper: 0.05
+---
+```
+
+-   The actual caliper is now replaced with `params$ps_caliper`
+
+```{r}
+#| echo: true
+#| eval: false
+MatchIt::matchit(
+  formula = exposure ~ age_num + female_cat + smoking_cat,
+  data = smdi::smdi_data,
+  caliper = params$ps_caliper
+  )
+```
+
+## Quarto-based research reports
+
+[![An example of a Quarto-based research report can be found in the course materials website](images/hdmi_example.png){fig-align="center"}](https://drugepi.gitlab-pages.partners.org/hdmi-manuscript/)
+
+## Quarto summary
+
+::: callout-tip
+## Quarto ...
+
+-   Is a technical publishing system compatible with most programming languages and editors
+
+-   Is a single source reporting system that can produce many different types of outputs (docx, pdf, html, websites, presentations, etc.)
+
+-   Main ingredients: YAML header (metadata), text, code chunks
+
+-   Can be used as to blend narrative text, programming code and output in one document
+
+-   Has all capabilities of common reporting systems (e.g., MS Word) and some that go beyond (inline coding, dynamic elements, ...)
+:::
+
 
 ## **Further resources**
 
@@ -298,6 +621,6 @@ smdi_data <- smdi_data |>
 
 -   [Basic Quarto workflows](https://openscapes.github.io/quarto-website-tutorial/quarto-workflows/)
 
--   
+-   [Reproducible Manuscripts with Quarto](https://youtu.be/0wB4K08ui4c?si=VT35-wT9fyBBiFVj)
 
-## References
+## **References**

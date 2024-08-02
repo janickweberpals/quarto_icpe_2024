@@ -302,6 +302,22 @@
       ],
       "Hash": "cd9a672193789068eb5a2aad65a0dedf"
     },
+    "cards": {
+      "Package": "cards",
+      "Version": "0.2.0",
+      "Source": "Repository",
+      "Repository": "REPO_NAME",
+      "Requirements": [
+        "R",
+        "cli",
+        "dplyr",
+        "glue",
+        "rlang",
+        "tidyr",
+        "tidyselect"
+      ],
+      "Hash": "46b7ae0faa009c0124a7415e86d0185f"
+    },
     "chk": {
       "Package": "chk",
       "Version": "0.9.1",
@@ -747,6 +763,25 @@
         "utils"
       ],
       "Hash": "588d091c35389f1f4a9d533c8d709b35"
+    },
+    "gtsummary": {
+      "Package": "gtsummary",
+      "Version": "2.0.0",
+      "Source": "Repository",
+      "Repository": "REPO_NAME",
+      "Requirements": [
+        "R",
+        "cards",
+        "cli",
+        "dplyr",
+        "glue",
+        "gt",
+        "lifecycle",
+        "rlang",
+        "tidyr",
+        "vctrs"
+      ],
+      "Hash": "c35c4de5039247e326b4ff85618dcdc7"
     },
     "haven": {
       "Package": "haven",
