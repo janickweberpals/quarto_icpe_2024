@@ -169,7 +169,7 @@ MatchIt::matchit(
 
 -   An open-source scientific and technical publishing system
 
-[![Side-by-side example of a Quarto document (left) and a rendered .html output](images/quarto-hello.png)](https://quarto.org/docs/get-started/hello/rstudio.html)
+[![Side-by-side example of a Quarto document (left) and a rendered .html output](images/quarto-hello.png){width="613"}](https://quarto.org/docs/get-started/hello/rstudio.html)
 
 ## Introduction to Quarto
 
