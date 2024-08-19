@@ -260,14 +260,6 @@ ps_fit
 -   `Code chunks` are not limited to one programming language, but can flexibly accommodate multiple in the same document
 -   Language is chosen by the `{}` parameter at the beginning of each code chunk, e.g., `R` (left) and `Python` (right)
 
-```{r}
-#| include: false
-#| eval: true
-
-library(remotes)
-library(reticulate)
-```
-
 ::: columns
 ::: {.column width="50%"}
 ```` markdown
