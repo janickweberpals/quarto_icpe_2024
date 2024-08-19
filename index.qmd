@@ -262,6 +262,9 @@ ps_fit
 
 ```{r}
 #| include: false
+#| eval: true
+
+library(remotes)
 library(reticulate)
 ```
 
@@ -714,7 +717,19 @@ quarto render analysis.qmd -P ps_caliper:0.05
 quarto render analysis.qmd -P ps_caliper:0.01
 ```
 
-## Quarto-based research reports
+## Quarto-based research reports (i)
+
+::: callout-tip
+-   The ultimate goal would be to re-run your entire study, from deriving analytic cohorts to the very last sensitivity analysis, upon the execution of your
+:::
+
+``` {.bash filename="Terminal"}
+quarto render
+```
+
+## 
+
+## Quarto-based research reports (ii)
 
 [![An example of a Quarto-based research report can be found in the course materials website](images/hdmi_example.png){fig-align="center"}](https://drugepi.gitlab-pages.partners.org/hdmi-manuscript/)
 

@@ -27,9 +27,16 @@ jobs:
         with:
           cache-version: 1
 
-      - name: Install dev reticulate from Github
+      - name: Install Miniconda
         run: |
           Rscript -e "remotes::install_github('rstudio/reticulate')"
+          Rscript -e "reticulate::install_miniconda()"
+      - if: runner.os == 'macOS'
+        run: echo "options(reticulate.conda_binary = reticulate:::miniconda_conda())" >> .Rprofile
+      - name: Install Python Dependencies
+        run: |
+          Rscript -e "reticulate::conda_create('r-reticulate', packages = c('python', 'numpy', 'pandas'))"
+          Rscript -e "remotes::install_local()"
 
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
