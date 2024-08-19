@@ -282,28 +282,6 @@ data <- data.frame(
 head(data)
 ```
 ````
-
-```{r}
-#| eval: true
-#| echo: false
-
-# Load necessary libraries
-library(dplyr)
-
-# Set a random seed for reproducibility
-set.seed(42)
-
-# Simulate a dataset
-n_patients <- 1000
-data <- data.frame(
-  patient_id = 1:n_patients,
-  medication = sample(c('DrugX', 'DrugY'), n_patients, replace = T, prob = c(0.5, 0.5)),
-  adr = sample(c(0, 1), n_patients, replace = TRUE, prob = c(0.95, 0.05))
-  )
-
-# View the first few rows of the simulated data
-head(data)
-```
 :::
 
 ::: {.column width="50%"}
@@ -328,29 +306,6 @@ data = pd.DataFrame({
 data.head()
 ```
 ````
-
-```{python}
-#| eval: true
-#| echo: false
-
-# Load necessary libraries
-import pandas as pd
-import numpy as np
-
-# Set a random seed for reproducibility
-np.random.seed(42)
-
-# Simulate a dataset
-n_patients = 1000
-data = pd.DataFrame({
-    'patient_id': np.arange(1, n_patients + 1),
-    'medication': np.random.choice(['DrugX', 'DrugY'], size=n_patients, p=[0.5, 0.5]),
-    'adr': np.random.choice([0, 1], size=n_patients, p=[0.95, 0.05])
-    })
-
-# View the first few rows of the simulated data
-data.head()
-```
 :::
 :::
 
@@ -721,7 +676,9 @@ quarto render
 
 ## Embedded computations[@elmunzer2012randomized]
 
-<iframe src="https://mine-cetinkaya-rundel.github.io/indo-rct//" title="A Randomized Trial of Rectal Indomethacin to Prevent Post-ERCP Pancreatitis" width="1100px" height="600px"></iframe>
+<iframe src="https://mine-cetinkaya-rundel.github.io/indo-rct/" width="800" height="400" title="HDMI research report">
+
+</iframe>
 
 ## Quarto-based research reports (ii)
 
