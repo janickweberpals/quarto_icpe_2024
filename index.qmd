@@ -738,7 +738,7 @@ quarto render analysis.qmd -P ps_caliper:0.01
 
 ## Curious?
 
-Test it out yourself!
+Test it out yourself with the `Hello, Quarto` tutorial:
 
 <https://quarto.org/docs/get-started/hello/rstudio.html>
 
