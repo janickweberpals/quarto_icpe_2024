@@ -138,7 +138,7 @@ MatchIt::matchit(
 
 -   Can be used with few programming languages, but mostly focused on `R` programming language
 
-[![Diagram illustrating how an RMarkdown document is converted to the final output document.](images/RMarkdown_workflow.png){#fig-rmarkdown-workflow width="882"}](https://bookdown.org/yihui/rmarkdown-cookbook/rmarkdown-process.html)
+[![Diagram illustrating how an RMarkdown document is converted to the final output document.](images/RMarkdown_workflow.png){#fig-rmarkdown-workflow fig-align="center" width="603"}](https://bookdown.org/yihui/rmarkdown-cookbook/rmarkdown-process.html)
 
 ## Popular legacy frameworks - RMarkdown
 
@@ -154,7 +154,7 @@ MatchIt::matchit(
 
 ## Popular legacy frameworks - Jupyter
 
-[![Example of a Jupyter Notebook report and the corresponding output](images/jupyterlab-preview.png){#fig-jupyter-example fig-align="center"}](https://quarto.org/docs/tools/jupyter-lab.html)
+[![Example of a Jupyter Notebook report and the corresponding output](images/jupyterlab-preview.png){#fig-jupyter-example fig-align="center" width="600"}](https://quarto.org/docs/tools/jupyter-lab.html)
 
 ## Document complexity of technical report {.hidden}
 
@@ -230,7 +230,7 @@ format:
 :::
 
 ::: {.column width="50%"}
-[![](images/markdown.png){width="567"}](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)
+[![](images/markdown.png){width="549"}](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)
 :::
 :::
 
@@ -681,7 +681,7 @@ quarto render
 
 ## Quarto-based research reports (ii)
 
-[![An example of a Quarto-based research report can be found in the course materials website](images/hdmi_example.png){#fig-example-report fig-align="center"}](https://drugepi.gitlab-pages.partners.org/hdmi-manuscript/)
+[![An example of a Quarto-based research report can be found in the course materials website](images/hdmi_example.png){#fig-example-report fig-align="center" width="607"}](https://drugepi.gitlab-pages.partners.org/hdmi-manuscript/)
 
 ## Quarto manuscripts
 
@@ -695,7 +695,7 @@ Quarto **manuscripts** (Quarto 1.4+), in addition to doing everything you can do
 
 ## Quarto manuscript templates
 
-[![The quarto-journals organization collects a curated set of journal templates for Quarto.](images/Quarto_templates.png){#fig-manuscript-templates fig-align="center"}](https://github.com/quarto-journals/)
+[![The quarto-journals organization collects a curated set of journal templates for Quarto.](images/Quarto_templates.png){#fig-manuscript-templates fig-align="center" width="607"}](https://github.com/quarto-journals/)
 
 ## Quarto summary
 
