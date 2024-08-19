@@ -260,6 +260,11 @@ ps_fit
 -   `Code chunks` are not limited to one programming language, but can flexibly accommodate multiple in the same document
 -   Language is chosen by the `{}` parameter at the beginning of each code chunk, e.g., `R` (left) and `Python` (right)
 
+```{r}
+#| include: false
+library(reticulate)
+```
+
 ::: columns
 ::: {.column width="50%"}
 ```` markdown
@@ -742,6 +747,8 @@ Test it out yourself!
 </iframe>
 
 ## **Further resources**
+
+-   [Getting started with Quarto (download and installation)](https://quarto.org/docs/get-started/)
 
 -   [Introduction to Quarto (R for Data Science)](https://r4ds.hadley.nz/quarto)
 
