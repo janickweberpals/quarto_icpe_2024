@@ -18,12 +18,13 @@ format:
   #   colorlinks: true
 code-summary: "Show code"
 code-line-numbers: true
-
+  
 toc: true
 toc-depth: 1
 slide-number: true
 embed-resources: true
 bibliography: references.bib
+csl: pharmacoepidemiology-and-drug-safety.csl
 ---
 
 # Problem statement
@@ -56,7 +57,7 @@ One could find the details in the analytical programming code, BUT...
 
 [Nature survey 2016](https://www.nature.com/articles/533452a#change-history): More than 70% of researchers have tried and failed to reproduce another scientist's experiments, and more than half have failed to reproduce their own experiments [@Baker2016]
 
-![](images/nature_reproducibility_crisis.jpg){#fig-nature fig-align="center"}
+![Nature survey on reproducibility issues in science.](images/nature_reproducibility_crisis.jpg){#fig-nature fig-align="center"}
 
 ## What if...
 
@@ -137,11 +138,11 @@ MatchIt::matchit(
 
 -   Can be used with few programming languages, but mostly focused on `R` programming language
 
-[![Diagram illustrating how an RMarkdown document is converted to the final output document.](images/RMarkdown_workflow.png){width="882"}](https://bookdown.org/yihui/rmarkdown-cookbook/rmarkdown-process.html)
+[![Diagram illustrating how an RMarkdown document is converted to the final output document.](images/RMarkdown_workflow.png){#fig-rmarkdown-workflow width="882"}](https://bookdown.org/yihui/rmarkdown-cookbook/rmarkdown-process.html)
 
 ## Popular legacy frameworks - RMarkdown
 
-![Example of an RMarkdown report and the corresponding output](images/RMarkdown_example.png){fig-align="center"}
+![Example of an RMarkdown report and the corresponding output](images/RMarkdown_example.png){#fig-markdown-output fig-align="center"}
 
 ## Popular legacy frameworks - Jupyter
 
@@ -149,11 +150,11 @@ MatchIt::matchit(
 
 -   Most often seen to be used by Python programmers
 
-[![Illustration of Jupyter notebook workflow.](images/ipynb-how-it-works.png){fig-align="center"}](https://jjallaire.quarto.pub/intro-to-quarto/#/jupyter-engine)
+[![Illustration of Jupyter notebook workflow](images/ipynb-how-it-works.png){#fig-jupyter-workflow fig-align="center"}](https://jjallaire.quarto.pub/intro-to-quarto/#/jupyter-engine)
 
 ## Popular legacy frameworks - Jupyter
 
-[![Example of a Jupyter Notebook report and the corresponding output](images/jupyterlab-preview.png){fig-align="center"}](https://quarto.org/docs/tools/jupyter-lab.html)
+[![Example of a Jupyter Notebook report and the corresponding output](images/jupyterlab-preview.png){#fig-jupyter-example fig-align="center"}](https://quarto.org/docs/tools/jupyter-lab.html)
 
 ## Document complexity of technical report {.hidden}
 
@@ -169,7 +170,7 @@ MatchIt::matchit(
 
 -   An open-source scientific and technical publishing system
 
-[![Side-by-side example of a Quarto document (left) and a rendered .html output](images/quarto-hello.png){width="613"}](https://quarto.org/docs/get-started/hello/rstudio.html)
+[![Side-by-side example of a Quarto document (left) and a rendered .html output](images/quarto-hello.png){#fig-quarto-side-by-side width="613"}](https://quarto.org/docs/get-started/hello/rstudio.html)
 
 ## Introduction to Quarto
 
@@ -189,7 +190,7 @@ MatchIt::matchit(
 
 -   Example: Manuscript written for a journal, we can also render it into a website
 
-[![From raw code and text to an elegant research report using Quarto](images/qmd-workflow.png)](https://openscapes.github.io/quarto-website-tutorial/quarto-workflows/)
+[![From raw code and text to an elegant research report using Quarto](images/qmd-workflow.png){#fig-quarto-workflow}](https://openscapes.github.io/quarto-website-tutorial/quarto-workflows/)
 
 ## Quarto - ingredients for a research report (i)
 
@@ -229,7 +230,7 @@ format:
 :::
 
 ::: {.column width="50%"}
-[![](images/markdown.png){width="600"}](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)
+[![](images/markdown.png){width="567"}](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)
 :::
 :::
 
@@ -254,33 +255,101 @@ ps_fit <- as.formula(exposure ~ age_num + female_cat + smoking_cat)
 ps_fit
 ```
 
-## Quarto - ingredients for a research report (iii)
+## Quarto - ingredients for a research report (iii) {.smaller}
 
--   `Code chunks` are not limited to one programming language, but can accommodate multiple in the same document
--   Language is chosen by the `{}` parameter at the beginning of each code chunk
+-   `Code chunks` are not limited to one programming language, but can flexibly accommodate multiple in the same document
+-   Language is chosen by the `{}` parameter at the beginning of each code chunk, e.g., `R` (left) and `Python` (right)
 
 ::: columns
 ::: {.column width="50%"}
 ```` markdown
 ```{{r}}
-print("This is R code")
+# Load necessary libraries
+library(dplyr)
+
+# Set a random seed for reproducibility
+set.seed(42)
+
+# Simulate a dataset
+n_patients <- 1000
+data <- data.frame(
+  patient_id = 1:n_patients,
+  medication = sample(c('DrugX', 'DrugY'), n_patients, replace = T, prob = c(0.5, 0.5)),
+  adr = sample(c(0, 1), n_patients, replace = TRUE, prob = c(0.95, 0.05))
+  )
+
+# View the first few rows of the simulated data
+head(data)
 ```
 ````
 
 ```{r}
-print("This is R code")
+#| eval: true
+#| echo: false
+
+# Load necessary libraries
+library(dplyr)
+
+# Set a random seed for reproducibility
+set.seed(42)
+
+# Simulate a dataset
+n_patients <- 1000
+data <- data.frame(
+  patient_id = 1:n_patients,
+  medication = sample(c('DrugX', 'DrugY'), n_patients, replace = T, prob = c(0.5, 0.5)),
+  adr = sample(c(0, 1), n_patients, replace = TRUE, prob = c(0.95, 0.05))
+  )
+
+# View the first few rows of the simulated data
+head(data)
 ```
 :::
 
 ::: {.column width="50%"}
 ```` markdown
 ```{{python}}
-print("This is python code")
+# Load necessary libraries
+import pandas as pd
+import numpy as np
+
+# Set a random seed for reproducibility
+np.random.seed(42)
+
+# Simulate a dataset
+n_patients = 1000
+data = pd.DataFrame({
+    'patient_id': np.arange(1, n_patients + 1),
+    'medication': np.random.choice(['DrugX', 'DrugY'], size=n_patients, p=[0.5, 0.5]),
+    'adr': np.random.choice([0, 1], size=n_patients, p=[0.95, 0.05])
+    })
+
+# View the first few rows of the simulated data
+data.head()
 ```
 ````
 
-```{r}
-print("This is python code")
+```{python}
+#| eval: true
+#| echo: false
+
+# Load necessary libraries
+import pandas as pd
+import numpy as np
+
+# Set a random seed for reproducibility
+np.random.seed(42)
+
+# Simulate a dataset
+n_patients = 1000
+data = pd.DataFrame({
+    'patient_id': np.arange(1, n_patients + 1),
+    'medication': np.random.choice(['DrugX', 'DrugY'], size=n_patients, p=[0.5, 0.5]),
+    'adr': np.random.choice([0, 1], size=n_patients, p=[0.95, 0.05])
+    })
+
+# View the first few rows of the simulated data
+data.head()
 ```
 :::
 :::
@@ -328,7 +397,7 @@ flowchart LR
 ````
 
 ```{mermaid}
-%%| fig-width: 15
+%%| fig-width: 20
 flowchart LR
   C(Confounder) --> E(Exposure)
   C(Confounder) --> O(Outcome)
@@ -372,7 +441,7 @@ trial |>
 
 ## Equations
 
--   Quarto also integrates LaTeX and styles to write equations such that ...
+-   Quarto also integrates $\LaTeX{}$ and styles to write equations, for example ...
 
 ```         
 $$
@@ -388,14 +457,14 @@ $$
 
 ## Referencing
 
-Quarto has an in-built referencing system for which the referencing style can be chosen in the `YAML header`
+Quarto has an in-built referencing system for which the referencing style can be chosen in the `YAML header` (.csl reference-style files see [zotero.org/styles](https://www.zotero.org/styles))
 
 ::: columns
-::: {.column width="50%"}
-![RStudio built-in reference manager](images/citation_manager.png)
+::: {.column .fragment width="50%"}
+![RStudio built-in reference manager](images/citation_manager.png){#fig-citation-manager}
 :::
 
-::: {.column .incremental width="50%"}
+::: {.column .fragment width="50%"}
 ``` yaml
 ---
 title: "My RWE study report"
@@ -409,7 +478,7 @@ In the 2009 publication, Schneeweiss et al.
 concept of high-dimensional propensity scores.
 ```
 
-⬇️
+becomes ⬇️
 
 *"In his 2009 publication, Schneeweiss et al. [@schneeweiss2009high] introduced the concept of high-dimensional propensity scores."*
 :::
@@ -417,7 +486,7 @@ concept of high-dimensional propensity scores.
 
 ## Inline code
 
--   Inline code allows to execute code within markdown, e.g. to automatically use the most up-to-date computations in narrative.
+-   Inline code allows to execute code within markdown text, e.g. to automatically use the most up-to-date computations embedded in narrative language.
 
 ```{r}
 #| include: false
@@ -429,7 +498,7 @@ sample_size <- nrow(smdi_data)
 ```` markdown
 ```{{r}}
 # we determine the sample size in a code chunk to integrate into our narrative report
-sample_size <- nrow(smdi_data)
+sample_size <- nrow(smdi_data)  
 ```
 
 The sample size comprised `{r} sample_size` patients.
@@ -443,7 +512,7 @@ The sample size comprised `{r} sample_size` patients.
 
 If we render study reports to output formats that support interactive elements (e.g., .html), Quarto provides even more tools to make study reporting interactive
 
-## Tabsets
+## Tabsets {.small}
 
 ```{r}
 #| include: false
@@ -462,8 +531,11 @@ dataset <- smdi_data |>
 
 ## Age distribution
 
+{code}
 
 ## Biomarker distribution
+
+{code}
 
 :::
 ```
@@ -596,6 +668,47 @@ MatchIt::matchit(
   )
 ```
 
+## Parameterized reporting (iii) {.small}
+
+Now, the exact same script can be rendered using different parameters.
+
+```{r}
+#| label: render-with-parameters
+#| eval: false
+#| echo: true
+
+# load libraries
+library(quarto)
+library(here)
+
+# render report with parameters
+
+# main analysis with 5% caliper of propensity score standard deviation
+quarto_render(
+  input = here("analysis_scripts", "analysis.qmd"),
+  metadata = list(title = "Main analysis"),
+  execute_params = list(ps_caliper = 0.05)
+  )
+
+# sensitivity analysis with 1% caliper of propensity score standard deviation
+quarto_render(
+  input = here("analysis_scripts", "analysis.qmd"),
+  metadata = list(title = "Sensitivity analysis I"),
+  execute_params = list(ps_caliper = 0.01)
+  )
+
+```
+
+## Parameterized reporting (iv)
+
+To render reports with parameters, you can also pass them on the command line/Terminal using the `-P` flag (this works for both `.ipynb` or `.qmd` files):
+
+``` {.bash filename="Terminal"}
+quarto render analysis.qmd -P ps_caliper:0.05
+
+quarto render analysis.qmd -P ps_caliper:0.01
+```
+
 ## Quarto-based research reports
 
 [![An example of a Quarto-based research report can be found in the course materials website](images/hdmi_example.png){fig-align="center"}](https://drugepi.gitlab-pages.partners.org/hdmi-manuscript/)
@@ -617,6 +730,16 @@ MatchIt::matchit(
 
 -   Is a useful tool to parameterize and streamline analysis pipelines avoiding error-prone copy-pasting
 :::
+
+## Curious?
+
+Test it out yourself!
+
+<https://quarto.org/docs/get-started/hello/rstudio.html>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/_f3latmOhew?si=Tkwqp5qDWS3mifED" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+
+</iframe>
 
 ## **Further resources**
 
