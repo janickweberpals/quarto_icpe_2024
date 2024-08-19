@@ -720,15 +720,20 @@ quarto render analysis.qmd -P ps_caliper:0.01
 ## Quarto-based research reports (i)
 
 ::: callout-tip
--   The ultimate goal would be to re-run your entire study, from deriving analytic cohorts to the very last sensitivity analysis, upon the execution of your
+-   The ultimate goal would be to reproduce your entire study, from deriving analytic cohorts to the very last sensitivity analysis, upon rendering your quarto project
 :::
 
 ``` {.bash filename="Terminal"}
 quarto render
 ```
 
-## 
+## Embedded computations
 
+[@elmunzer2012randomized]
+
+```{=html}
+<iframe src="https://mine-cetinkaya-rundel.github.io/indo-rct//" title="A Randomized Trial of Rectal Indomethacin to Prevent Post-ERCP Pancreatitis" width="1100px" height="600px"></iframe>
+```
 ## Quarto-based research reports (ii)
 
 [![An example of a Quarto-based research report can be found in the course materials website](images/hdmi_example.png){fig-align="center"}](https://drugepi.gitlab-pages.partners.org/hdmi-manuscript/)
