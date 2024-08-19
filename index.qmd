@@ -640,14 +640,14 @@ library(here)
 
 # main analysis with 5% caliper of propensity score standard deviation
 quarto_render(
-  input = here("analysis_scripts", "analysis.qmd"),
+  input =  "analysis.qmd",
   metadata = list(title = "Main analysis"),
   execute_params = list(ps_caliper = 0.05)
   )
 
 # sensitivity analysis with 1% caliper of propensity score standard deviation
 quarto_render(
-  input = here("analysis_scripts", "analysis.qmd"),
+  input =  "analysis.qmd",
   metadata = list(title = "Sensitivity analysis I"),
   execute_params = list(ps_caliper = 0.01)
   )
@@ -667,22 +667,35 @@ quarto render analysis.qmd -P ps_caliper:0.01
 ## Quarto-based research reports (i)
 
 ::: callout-tip
--   The ultimate goal would be to reproduce your entire study, from deriving analytic cohorts to the very last sensitivity analysis, upon rendering your quarto project
+## The ultimate goal...
+
+-   reproduce your entire study, from deriving analytic cohorts to the very last sensitivity analysis, upon rendering your quarto project
+-   have access to all computations embedded in a manuscript text or linked research report
 :::
+
+![](images/render.png){fig-align="center" width="187" height="59"}
 
 ``` {.bash filename="Terminal"}
 quarto render
 ```
 
-## Embedded computations[@elmunzer2012randomized]
-
-<iframe src="https://mine-cetinkaya-rundel.github.io/indo-rct/" width="800" height="400" title="HDMI research report">
-
-</iframe>
-
 ## Quarto-based research reports (ii)
 
-[![An example of a Quarto-based research report can be found in the course materials website](images/hdmi_example.png){fig-align="center"}](https://drugepi.gitlab-pages.partners.org/hdmi-manuscript/)
+[![An example of a Quarto-based research report can be found in the course materials website](images/hdmi_example.png){#fig-example-report fig-align="center"}](https://drugepi.gitlab-pages.partners.org/hdmi-manuscript/)
+
+## Quarto manuscripts
+
+Quarto **manuscripts** (Quarto 1.4+), in addition to doing everything you can do with journal articles, can
+
+-   produce manuscripts in **multiple formats** (including LaTeX or MS Word formats required by journals), and give readers easy access to all of the formats through a website
+
+-   **publish computations** from one or more notebooks alongside the manuscript, allowing readers to dive into your code and view it or interact with it in a virtual environment
+
+-   Example of a reproduced NEJM trial[@elmunzer2012randomized]: <https://mine-cetinkaya-rundel.github.io/indo-rct/>
+
+## Quarto manuscript templates
+
+[![The quarto-journals organization collects a curated set of journal templates for Quarto.](images/Quarto_templates.png){#fig-manuscript-templates fig-align="center"}](https://github.com/quarto-journals/)
 
 ## Quarto summary
 
@@ -707,10 +720,6 @@ quarto render
 Test it out yourself with the `Hello, Quarto` tutorial:
 
 <https://quarto.org/docs/get-started/hello/rstudio.html>
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/_f3latmOhew?si=Tkwqp5qDWS3mifED" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-
-</iframe>
 
 ## **Further resources**
 
