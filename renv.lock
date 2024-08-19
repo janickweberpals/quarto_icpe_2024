@@ -1473,20 +1473,6 @@
       ],
       "Hash": "9de96463d2117f6ac49980577939dfb3"
     },
-    "remotes": {
-      "Package": "remotes",
-      "Version": "2.5.0",
-      "Source": "Repository",
-      "Repository": "REPO_NAME",
-      "Requirements": [
-        "R",
-        "methods",
-        "stats",
-        "tools",
-        "utils"
-      ],
-      "Hash": "3ee025083e66f18db6cf27b56e23e141"
-    },
     "renv": {
       "Package": "renv",
       "Version": "1.0.7",
@@ -1499,14 +1485,9 @@
     },
     "reticulate": {
       "Package": "reticulate",
-      "Version": "1.38.0.9000",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteRepo": "reticulate",
-      "RemoteUsername": "rstudio",
-      "RemoteRef": "HEAD",
-      "RemoteSha": "ddab6a648159a99173ee7d05be3b9e97c24ac0dc",
+      "Version": "1.38.0",
+      "Source": "Repository",
+      "Repository": "REPO_NAME",
       "Requirements": [
         "Matrix",
         "R",
@@ -1522,7 +1503,7 @@
         "utils",
         "withr"
       ],
-      "Hash": "a26a66e8c0818c8e4814562642ac9bb2"
+      "Hash": "8810e64cfe0240afe926617a854a38a4"
     },
     "rlang": {
       "Package": "rlang",
