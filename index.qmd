@@ -42,7 +42,7 @@ csl: pharmacoepidemiology-and-drug-safety.csl
 
 -   Does the 90-day window include or exclude the index date? What was done if there were multiple performance assessments per patient? ...
 
--   Take a moment and reflect if you would be able to exactly reproduce a study you published 10 years just based on the paper's methods section?
+-   Take a moment and reflect if you would be able to exactly reproduce a study you published 10 years ago just based on the paper's methods section?
 :::
 
 ## Problem statement (ii) {.incremental}
