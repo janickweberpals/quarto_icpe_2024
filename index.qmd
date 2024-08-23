@@ -23,6 +23,12 @@ toc: true
 toc-depth: 1
 slide-number: true
 embed-resources: true
+
+spotlight:
+    size: 120
+revealjs-plugins:
+  - spotlight
+  
 bibliography: references.bib
 csl: pharmacoepidemiology-and-drug-safety.csl
 ---
@@ -120,7 +126,7 @@ MatchIt::matchit(
   )
 ```
 
-## History of literate programming
+## History of literate programming {.hidden}
 
 -   [Literate programming](https://en.wikipedia.org/wiki/Literate_programming) is a concept pioneered by [Donald Knuth](#0), a Turing Award recipient known for creating [TeX](#0).
 
@@ -170,7 +176,7 @@ MatchIt::matchit(
 
 -   An open-source scientific and technical publishing system
 
-[![Side-by-side example of a Quarto document (left) and a rendered .html output](images/quarto-hello.png){#fig-quarto-side-by-side width="613"}](https://quarto.org/docs/get-started/hello/rstudio.html)
+[![Side-by-side example of a Quarto document (left) and a rendered .html output](images/quarto-hello.png){#fig-quarto-side-by-side .hidden width="613"}](https://quarto.org/docs/get-started/hello/rstudio.html)
 
 ## Introduction to Quarto
 
@@ -352,7 +358,6 @@ flowchart LR
 ````
 
 ```{mermaid}
-%%| fig-width: 20
 flowchart LR
   C(Confounder) --> E(Exposure)
   C(Confounder) --> O(Outcome)
@@ -361,7 +366,7 @@ flowchart LR
 
 ## Tables
 
-Similarly, we can also create, label and cross-reference `tables` using `@tbl-table1` which becomes @tbl-table1.
+We can also create, label and cross-reference `tables` using `@tbl-table1` which becomes @tbl-table1.
 
 ```{r}
 #| include: false
