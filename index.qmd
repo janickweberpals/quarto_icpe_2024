@@ -172,11 +172,11 @@ MatchIt::matchit(
 
 > Dynamic study reporting
 
-## Introduction to Quarto
+## Introduction to Quarto {.hidden}
 
 -   An open-source scientific and technical publishing system
 
-[![Side-by-side example of a Quarto document (left) and a rendered .html output](images/quarto-hello.png){#fig-quarto-side-by-side .hidden width="613"}](https://quarto.org/docs/get-started/hello/rstudio.html)
+[![Side-by-side example of a Quarto document (left) and a rendered .html output](images/quarto-hello.png){#fig-quarto-side-by-side width="613"}](https://quarto.org/docs/get-started/hello/rstudio.html)
 
 ## Introduction to Quarto
 
