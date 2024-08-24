@@ -24,10 +24,10 @@ toc-depth: 1
 slide-number: true
 embed-resources: true
 
-spotlight:
-    size: 120
-revealjs-plugins:
-  - spotlight
+# spotlight:
+#     size: 120
+# revealjs-plugins:
+#   - spotlight
   
 bibliography: references.bib
 csl: pharmacoepidemiology-and-drug-safety.csl
